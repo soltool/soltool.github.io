@@ -1,0 +1,2501 @@
+openapi: 3.0.0
+
+paths:
+  /getAccountInfo:
+    post:
+      description: Returns all information associated with the account of provided Pubkey
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: 
+                - jsonrpc
+                - id
+                - method
+                - params
+              properties:
+                jsonrpc:
+                  type: string
+                  example: "2.0"
+                id:
+                  type: number
+                  example: 1
+                method:
+                  type: string
+                  example: getAccountInfo
+                params:
+                  type: array
+                  example: ["vines1vzrYbzLMRdu58ou5XTby4qAqVRLmqo36NKPTg", {"encoding": "base58"}]
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: object
+                required: 
+                  - jsonrpc
+                  - result
+                  - id
+                properties:
+                  jsonrpc:
+                    type: string
+                    example: "2.0"
+                  result:
+                    type: object
+                    example: {"context":{"apiVersion":"2.0.15","slot":341197053},"value":{"data":["","base58"],"executable":false,"lamports":88849814690250,"owner":"11111111111111111111111111111111","rentEpoch":18446744073709551615,"space":0}}
+                  id:
+                    type: number
+                    example: 1
+
+  /getBalance:
+    post:
+      description: Returns the lamport balance of the account of provided Pubkey
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: 
+                - jsonrpc
+                - id
+                - method
+                - params
+              properties:
+                jsonrpc:
+                  type: string
+                  example: "2.0"
+                id:
+                  type: number
+                  example: 1
+                method:
+                  type: string
+                  example: getBalance
+                params:
+                  type: array
+                  example: ["83astBRguLMdt2h5U1Tpdq5tjFoJ6noeGwaY3mDLVcri"]
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: object
+                required: 
+                  - jsonrpc
+                  - result
+                  - id
+                properties:
+                  jsonrpc:
+                    type: string
+                    example: "2.0"
+                  result:
+                    type: object
+                    example: {"context":{"slot":1},"value":0}
+                  id:
+                    type: number
+                    example: 1
+
+  /getBlock:
+    post:
+      description: Returns identity and transaction information about a confirmed block in the ledger
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: 
+                - jsonrpc
+                - id
+                - method
+                - params
+              properties:
+                jsonrpc:
+                  type: string
+                  example: "2.0"
+                id:
+                  type: number
+                  example: 1
+                method:
+                  type: string
+                  example: getBlock
+                params:
+                  type: array
+                  example: [358930495,{"encoding":"json","maxSupportedTransactionVersion":0,"transactionDetails":"full","rewards":false}]
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: object
+                required: 
+                  - jsonrpc
+                  - result
+                  - id
+                properties:
+                  jsonrpc:
+                    type: string
+                    example: "2.0"
+                  result:
+                    type: object
+                    example: {"blockHeight":428,"blockTime":null,"blockhash":"3Eq21vXNB5s86c62bVuUfTeaMif1N2kUqRPBmGRJhyTA","parentSlot":429,"previousBlockhash":"mfcyqEXB3DnHXki6KjjmZck6YjmZLvpAByy2fj4nh6B","transactions":[{"meta":{"err":null,"fee":5000,"innerInstructions":[],"logMessages":[],"postBalances":[499998932500,26858640,1,1,1],"postTokenBalances":[],"preBalances":[499998937500,26858640,1,1,1],"preTokenBalances":[],"rewards":null,"status":{"Ok":null}},"transaction":{"message":{"accountKeys":["3UVYmECPPMZSCqWKfENfuoTv51fTDTWicX9xmBD2euKe","AjozzgE83A3x1sHNUR64hfH7zaEBWeMaFuAN9kQgujrc","SysvarS1otHashes111111111111111111111111111","SysvarC1ock11111111111111111111111111111111","Vote111111111111111111111111111111111111111"],"header":{"numReadonlySignedAccounts":0,"numReadonlyUnsignedAccounts":3,"numRequiredSignatures":1},"instructions":[{"accounts":[1,2,3,0],"data":"37u9WtQpcm6ULa3WRQHmj49EPs4if7o9f1jSRVZpm2dvihR9C8jY4NqEwXUbLwx15HBSNcP1","programIdIndex":4}],"recentBlockhash":"mfcyqEXB3DnHXki6KjjmZck6YjmZLvpAByy2fj4nh6B"},"signatures":["2nBhEBYYvfaAe16UMNqRHre4YNSskvuYgx3M6E4JP1oDYvZEJHvoPzyUidNgNX5r9sTyN1J9UxtbCXy2rqYcuyuv"]}}]}
+                  id:
+                    type: number
+                    example: 1
+
+  /getBlockCommitment:
+    post:
+      description: Returns commitment for particular block
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: 
+                - jsonrpc
+                - id
+                - method
+                - params
+              properties:
+                jsonrpc:
+                  type: string
+                  example: "2.0"
+                id:
+                  type: number
+                  example: 1
+                method:
+                  type: string
+                  example: getBlockCommitment
+                params:
+                  type: array
+                  example: [5]
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: object
+                required: 
+                  - jsonrpc
+                  - result
+                  - id
+                properties:
+                  jsonrpc:
+                    type: string
+                    example: "2.0"
+                  result:
+                    type: object
+                    example: {"commitment":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,10,32],"totalStake":42}
+                  id:
+                    type: number
+                    example: 1
+
+  /getBlockHeight:
+    post:
+      description: Returns the current block height of the node
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: 
+                - jsonrpc
+                - id
+                - method
+                - params
+              properties:
+                jsonrpc:
+                  type: string
+                  example: "2.0"
+                id:
+                  type: number
+                  example: 1
+                method:
+                  type: string
+                  example: getBlockHeight
+                params:
+                  type: array
+                  example: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: object
+                required: 
+                  - jsonrpc
+                  - result
+                  - id
+                properties:
+                  jsonrpc:
+                    type: string
+                    example: "2.0"
+                  result:
+                    type: number
+                    example: 1233
+                  id:
+                    type: number
+                    example: 1
+
+  /getBlockProduction:
+    post:
+      description: Returns recent block production information from the current or previous epoch
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: 
+                - jsonrpc
+                - id
+                - method
+                - params
+              properties:
+                jsonrpc:
+                  type: string
+                  example: "2.0"
+                id:
+                  type: number
+                  example: 1
+                method:
+                  type: string
+                  example: getBlockProduction
+                params:
+                  type: array
+                  example: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: object
+                required: 
+                  - jsonrpc
+                  - result
+                  - id
+                properties:
+                  jsonrpc:
+                    type: string
+                    example: "2.0"
+                  result:
+                    type: object
+                    example: {"context":{"slot":9887},"value":{"byIdentity":{"85iYT5RuzRTDgjyRa3cP8SYhM2j21fj7NhfJ3peu1DPr":[9888,9886]},"range":{"firstSlot":0,"lastSlot":9887}}}
+                  id:
+                    type: number
+                    example: 1
+                  
+  /getBlocks:
+    post:
+      description: Returns a list of confirmed blocks between two slots
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: 
+                - jsonrpc
+                - id
+                - method
+                - params
+              properties:
+                jsonrpc:
+                  type: string
+                  example: "2.0"
+                id:
+                  type: number
+                  example: 1
+                method:
+                  type: string
+                  example: getBlocks
+                params:
+                  type: array
+                  example: [5, 10]
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: object
+                required: 
+                  - jsonrpc
+                  - result
+                  - id
+                properties:
+                  jsonrpc:
+                    type: string
+                    example: "2.0"
+                  result:
+                    type: array
+                    example: [5, 6, 7, 8, 9, 10]
+                  id:
+                    type: number
+                    example: 1
+
+  /getBlocksWithLimit:
+    post:
+      description: Returns a list of confirmed blocks starting at the given slot
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: 
+                - jsonrpc
+                - id
+                - method
+                - params
+              properties:
+                jsonrpc:
+                  type: string
+                  example: "2.0"
+                id:
+                  type: number
+                  example: 1
+                method:
+                  type: string
+                  example: getBlocksWithLimit
+                params:
+                  type: array
+                  example: [5, 3]
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: object
+                required: 
+                  - jsonrpc
+                  - result
+                  - id
+                properties:
+                  jsonrpc:
+                    type: string
+                    example: "2.0"
+                  result:
+                    type: array
+                    example: [5, 6, 7]
+                  id:
+                    type: number
+                    example: 1
+      
+  /getBlockTime:
+    post:
+      description: Returns the estimated production time of a block
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: 
+                - jsonrpc
+                - id
+                - method
+                - params
+              properties:
+                jsonrpc:
+                  type: string
+                  example: "2.0"
+                id:
+                  type: number
+                  example: 1
+                method:
+                  type: string
+                  example: getBlockTime
+                params:
+                  type: array
+                  example: [346949061]
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: object
+                required: 
+                  - jsonrpc
+                  - result
+                  - id
+                properties:
+                  jsonrpc:
+                    type: string
+                    example: "2.0"
+                  result:
+                    type: number
+                    example: 1734191486
+                  id:
+                    type: number
+                    example: 1                    
+     
+  /getClusterNodes:
+    post:
+      description: Returns information about all the nodes participating in the cluster
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: 
+                - jsonrpc
+                - id
+                - method
+                - params
+              properties:
+                jsonrpc:
+                  type: string
+                  example: "2.0"
+                id:
+                  type: number
+                  example: 1
+                method:
+                  type: string
+                  example: getClusterNodes
+                params:
+                  type: array
+                  example: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: object
+                required: 
+                  - jsonrpc
+                  - result
+                  - id
+                properties:
+                  jsonrpc:
+                    type: string
+                    example: "2.0"
+                  result:
+                    type: array
+                    example: [{"gossip":"10.239.6.48:8001","pubkey":"9QzsJf7LPLj8GkXbYT3LFDKqsj2hHG7TA3xinJHu8epQ","rpc":"10.239.6.48:8899","tpu":"10.239.6.48:8856","version":"1.0.0 c375ce1f"}]
+                  id:
+                    type: number
+                    example: 1    
+
+  /getEpochInfo:
+    post:
+      description: Returns information about the current epoch
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: 
+                - jsonrpc
+                - id
+                - method
+                - params
+              properties:
+                jsonrpc:
+                  type: string
+                  example: "2.0"
+                id:
+                  type: number
+                  example: 1
+                method:
+                  type: string
+                  example: getEpochInfo
+                params:
+                  type: array
+                  example: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: object
+                required: 
+                  - jsonrpc
+                  - result
+                  - id
+                properties:
+                  jsonrpc:
+                    type: string
+                    example: "2.0"
+                  result:
+                    type: object
+                    example: {"absoluteSlot":166598,"blockHeight":166500,"epoch":27,"slotIndex":2790,"slotsInEpoch":8192,"transactionCount":22661093}
+                  id:
+                    type: number
+                    example: 1    
+
+  /getEpochSchedule:
+    post:
+      description: Returns the epoch schedule information from this cluster's genesis config
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: 
+                - jsonrpc
+                - id
+                - method
+                - params
+              properties:
+                jsonrpc:
+                  type: string
+                  example: "2.0"
+                id:
+                  type: number
+                  example: 1
+                method:
+                  type: string
+                  example: getEpochSchedule
+                params:
+                  type: array
+                  example: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: object
+                required: 
+                  - jsonrpc
+                  - result
+                  - id
+                properties:
+                  jsonrpc:
+                    type: string
+                    example: "2.0"
+                  result:
+                    type: object
+                    example: {"firstNormalEpoch":8,"firstNormalSlot":8160,"leaderScheduleSlotOffset":8192,"slotsPerEpoch":8192,"warmup":true}
+                  id:
+                    type: number
+                    example: 1    
+
+  /getFeeForMessage:
+    post:
+      description: Get the fee the network will charge for a particular Message
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: 
+                - jsonrpc
+                - id
+                - method
+                - params
+              properties:
+                jsonrpc:
+                  type: string
+                  example: "2.0"
+                id:
+                  type: number
+                  example: 1
+                method:
+                  type: string
+                  example: getFeeForMessage
+                params:
+                  type: array
+                  example: ["AQABAgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEBAQAA",{"commitment":"processed"}]
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: object
+                required: 
+                  - jsonrpc
+                  - result
+                  - id
+                properties:
+                  jsonrpc:
+                    type: string
+                    example: "2.0"
+                  result:
+                    type: object
+                    example: {"context":{"slot":5068},"value":5000}
+                  id:
+                    type: number
+                    example: 1    
+
+  /getFirstAvailableBlock:
+    post:
+      description: Returns the slot of the lowest confirmed block that has not been purged from the ledger
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: 
+                - jsonrpc
+                - id
+                - method
+                - params
+              properties:
+                jsonrpc:
+                  type: string
+                  example: "2.0"
+                id:
+                  type: number
+                  example: 1
+                method:
+                  type: string
+                  example: getFirstAvailableBlock
+                params:
+                  type: array
+                  example: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: object
+                required: 
+                  - jsonrpc
+                  - result
+                  - id
+                properties:
+                  jsonrpc:
+                    type: string
+                    example: "2.0"
+                  result:
+                    type: number
+                    example: 250000
+                  id:
+                    type: number
+                    example: 1    
+
+  /getGenesisHash:
+    post:
+      description: Returns the genesis hash
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: 
+                - jsonrpc
+                - id
+                - method
+                - params
+              properties:
+                jsonrpc:
+                  type: string
+                  example: "2.0"
+                id:
+                  type: number
+                  example: 1
+                method:
+                  type: string
+                  example: getGenesisHash
+                params:
+                  type: array
+                  example: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: object
+                required: 
+                  - jsonrpc
+                  - result
+                  - id
+                properties:
+                  jsonrpc:
+                    type: string
+                    example: "2.0"
+                  result:
+                    type: string
+                    example: "GH7ome3EiwEr7tu9JuTh2dpYWBJK3z69Xm1ZE3MEE6JC"
+                  id:
+                    type: number
+                    example: 1    
+
+  /getHealth:
+    post:
+      description: Returns the current health of the node. A healthy node is one that is within HEALTH_CHECK_SLOT_DISTANCE slots of the latest cluster confirmed slot
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: 
+                - jsonrpc
+                - id
+                - method
+                - params
+              properties:
+                jsonrpc:
+                  type: string
+                  example: "2.0"
+                id:
+                  type: number
+                  example: 1
+                method:
+                  type: string
+                  example: getHealth
+                params:
+                  type: array
+                  example: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: object
+                required: 
+                  - jsonrpc
+                  - result
+                  - id
+                properties:
+                  jsonrpc:
+                    type: string
+                    example: "2.0"
+                  result:
+                    type: string
+                    example: "ok"
+                  id:
+                    type: number
+                    example: 1  
+
+  /getHighestSnapshotSlot:
+    post:
+      description: Returns the highest slot information that the node has snapshots for
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: 
+                - jsonrpc
+                - id
+                - method
+                - params
+              properties:
+                jsonrpc:
+                  type: string
+                  example: "2.0"
+                id:
+                  type: number
+                  example: 1
+                method:
+                  type: string
+                  example: getHighestSnapshotSlot
+                params:
+                  type: array
+                  example: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: object
+                required: 
+                  - jsonrpc
+                  - result
+                  - id
+                properties:
+                  jsonrpc:
+                    type: string
+                    example: "2.0"
+                  result:
+                    type: object
+                    example: {"full":100,"incremental":110}
+                  id:
+                    type: number
+                    example: 1  
+
+  /getIdentity:
+    post:
+      description: Returns the identity pubkey for the current node
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: 
+                - jsonrpc
+                - id
+                - method
+                - params
+              properties:
+                jsonrpc:
+                  type: string
+                  example: "2.0"
+                id:
+                  type: number
+                  example: 1
+                method:
+                  type: string
+                  example: getIdentity
+                params:
+                  type: array
+                  example: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: object
+                required: 
+                  - jsonrpc
+                  - result
+                  - id
+                properties:
+                  jsonrpc:
+                    type: string
+                    example: "2.0"
+                  result:
+                    type: object
+                    example: {"identity":"2r1F4iWqVcb8M1DbAjQuFpebkQHY9hcVU4WuW2DJBppN"}
+                  id:
+                    type: number
+                    example: 1  
+
+  /getInflationGovernor:
+    post:
+      description: Returns the current inflation governor
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: 
+                - jsonrpc
+                - id
+                - method
+                - params
+              properties:
+                jsonrpc:
+                  type: string
+                  example: "2.0"
+                id:
+                  type: number
+                  example: 1
+                method:
+                  type: string
+                  example: getInflationGovernor
+                params:
+                  type: array
+                  example: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: object
+                required: 
+                  - jsonrpc
+                  - result
+                  - id
+                properties:
+                  jsonrpc:
+                    type: string
+                    example: "2.0"
+                  result:
+                    type: object
+                    example: {"foundation":0.05,"foundationTerm":7,"initial":0.15,"taper":0.15,"terminal":0.015}
+                  id:
+                    type: number
+                    example: 1
+
+  /getInflationRate:
+    post:
+      description: Returns the specific inflation values for the current epoch
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: 
+                - jsonrpc
+                - id
+                - method
+                - params
+              properties:
+                jsonrpc:
+                  type: string
+                  example: "2.0"
+                id:
+                  type: number
+                  example: 1
+                method:
+                  type: string
+                  example: getInflationRate
+                params:
+                  type: array
+                  example: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: object
+                required: 
+                  - jsonrpc
+                  - result
+                  - id
+                properties:
+                  jsonrpc:
+                    type: string
+                    example: "2.0"
+                  result:
+                    type: object
+                    example: {"epoch":100,"foundation":0.001,"total":0.149,"validator":0.148}
+                  id:
+                    type: number
+                    example: 1
+
+  /getInflationReward:
+    post:
+      description: Returns the inflation / staking reward for a list of addresses for an epoch
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: 
+                - jsonrpc
+                - id
+                - method
+                - params
+              properties:
+                jsonrpc:
+                  type: string
+                  example: "2.0"
+                id:
+                  type: number
+                  example: 1
+                method:
+                  type: string
+                  example: getInflationReward
+                params:
+                  type: array
+                  example: [["6dmNQ5jwLeLk5REvio1JcMshcbvkYMwy26sJ8pbkvStu","BGsqMegLpV6n6Ve146sSX2dTjUMj3M92HnU8BbNRMhF2"],{"epoch":2}]
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: object
+                required: 
+                  - jsonrpc
+                  - result
+                  - id
+                properties:
+                  jsonrpc:
+                    type: string
+                    example: "2.0"
+                  result:
+                    type: array
+                    example: [{"amount":2500,"effectiveSlot":224,"epoch":2,"postBalance":499999442500},null]
+                  id:
+                    type: number
+                    example: 1
+
+  /getLargestAccounts:
+    post:
+      description: Returns the 20 largest accounts, by lamport balance (results may be cached up to two hours)
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: 
+                - jsonrpc
+                - id
+                - method
+                - params
+              properties:
+                jsonrpc:
+                  type: string
+                  example: "2.0"
+                id:
+                  type: number
+                  example: 1
+                method:
+                  type: string
+                  example: getLargestAccounts
+                params:
+                  type: array
+                  example: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: object
+                required: 
+                  - jsonrpc
+                  - result
+                  - id
+                properties:
+                  jsonrpc:
+                    type: string
+                    example: "2.0"
+                  result:
+                    type: object
+                    example: {"context":{"slot":54},"value":[{"lamports":999974,"address":"99P8ZgtJYe1buSK8JXkvpLh8xPsCFuLYhz9hQFNw93WJ"},{"lamports":42,"address":"uPwWLo16MVehpyWqsLkK3Ka8nLowWvAHbBChqv2FZeL"},{"lamports":42,"address":"aYJCgU7REfu3XF8b3QhkqgqQvLizx8zxuLBHA25PzDS"},{"lamports":42,"address":"CTvHVtQ4gd4gUcw3bdVgZJJqApXE9nCbbbP4VTS5wE1D"},{"lamports":20,"address":"4fq3xJ6kfrh9RkJQsmVd5gNMvJbuSHfErywvEjNQDPxu"},{"lamports":4,"address":"AXJADheGVp9cruP8WYu46oNkRbeASngN5fPCMVGQqNHa"},{"lamports":2,"address":"8NT8yS6LiwNprgW4yM1jPPow7CwRUotddBVkrkWgYp24"},{"lamports":1,"address":"SysvarEpochSchedu1e111111111111111111111111"},{"lamports":1,"address":"11111111111111111111111111111111"},{"lamports":1,"address":"Stake11111111111111111111111111111111111111"},{"lamports":1,"address":"SysvarC1ock11111111111111111111111111111111"},{"lamports":1,"address":"StakeConfig11111111111111111111111111111111"},{"lamports":1,"address":"SysvarRent111111111111111111111111111111111"},{"lamports":1,"address":"Config1111111111111111111111111111111111111"},{"lamports":1,"address":"SysvarStakeHistory1111111111111111111111111"},{"lamports":1,"address":"SysvarRecentB1ockHashes11111111111111111111"},{"lamports":1,"address":"SysvarFees111111111111111111111111111111111"},{"lamports":1,"address":"Vote111111111111111111111111111111111111111"}]}
+                  id:
+                    type: number
+                    example: 1
+
+  /getLatestBlockhash:
+    post:
+      description: Returns the latest blockhash
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: 
+                - jsonrpc
+                - id
+                - method
+                - params
+              properties:
+                jsonrpc:
+                  type: string
+                  example: "2.0"
+                id:
+                  type: number
+                  example: 1
+                method:
+                  type: string
+                  example: getLatestBlockhash
+                params:
+                  type: array
+                  example: [{"commitment":"processed"}]
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: object
+                required: 
+                  - jsonrpc
+                  - result
+                  - id
+                properties:
+                  jsonrpc:
+                    type: string
+                    example: "2.0"
+                  result:
+                    type: object
+                    example: {"context":{"slot":2792},"value":{"blockhash":"EkSnNWid2cvwEVnVx9aBqawnmiCNiDgp3gUdkDPTKN1N","lastValidBlockHeight":3090}}
+                  id:
+                    type: number
+                    example: 1
+
+  /getLeaderSchedule:
+    post:
+      description: Returns the leader schedule for an epoch
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: 
+                - jsonrpc
+                - id
+                - method
+                - params
+              properties:
+                jsonrpc:
+                  type: string
+                  example: "2.0"
+                id:
+                  type: number
+                  example: 1
+                method:
+                  type: string
+                  example: getLeaderSchedule
+                params:
+                  type: array
+                  example: [null,{"identity":"4Qkev8aNZcqFNSRhQzwyLMFSsi94jHqE8WNVTJzTP99F"}]
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: object
+                required: 
+                  - jsonrpc
+                  - result
+                  - id
+                properties:
+                  jsonrpc:
+                    type: string
+                    example: "2.0"
+                  result:
+                    type: object
+                    example: {"4Qkev8aNZcqFNSRhQzwyLMFSsi94jHqE8WNVTJzTP99F":[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63]}
+                  id:
+                    type: number
+                    example: 1
+
+  /getMaxRetransmitSlot:
+    post:
+      description: Get the max slot seen from retransmit stage
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: 
+                - jsonrpc
+                - id
+                - method
+                - params
+              properties:
+                jsonrpc:
+                  type: string
+                  example: "2.0"
+                id:
+                  type: number
+                  example: 1
+                method:
+                  type: string
+                  example: getMaxRetransmitSlot
+                params:
+                  type: array
+                  example: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: object
+                required: 
+                  - jsonrpc
+                  - result
+                  - id
+                properties:
+                  jsonrpc:
+                    type: string
+                    example: "2.0"
+                  result:
+                    type: number
+                    example: 1234
+                  id:
+                    type: number
+                    example: 1
+
+  /getMaxShredInsertSlot:
+    post:
+      description: Get the max slot seen from after shred insert
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: 
+                - jsonrpc
+                - id
+                - method
+                - params
+              properties:
+                jsonrpc:
+                  type: string
+                  example: "2.0"
+                id:
+                  type: number
+                  example: 1
+                method:
+                  type: string
+                  example: getMaxShredInsertSlot
+                params:
+                  type: array
+                  example: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: object
+                required: 
+                  - jsonrpc
+                  - result
+                  - id
+                properties:
+                  jsonrpc:
+                    type: string
+                    example: "2.0"
+                  result:
+                    type: number
+                    example: 1234
+                  id:
+                    type: number
+                    example: 1
+
+  /getMinimumBalanceForRentExemption:
+    post:
+      description: Returns minimum balance required to make account rent exempt
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: 
+                - jsonrpc
+                - id
+                - method
+                - params
+              properties:
+                jsonrpc:
+                  type: string
+                  example: "2.0"
+                id:
+                  type: number
+                  example: 1
+                method:
+                  type: string
+                  example: getMinimumBalanceForRentExemption
+                params:
+                  type: array
+                  example: [50]
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: object
+                required: 
+                  - jsonrpc
+                  - result
+                  - id
+                properties:
+                  jsonrpc:
+                    type: string
+                    example: "2.0"
+                  result:
+                    type: number
+                    example: 1238880
+                  id:
+                    type: number
+                    example: 1
+
+  /getMultipleAccounts:
+    post:
+      description: Returns the account information for a list of Pubkeys
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: 
+                - jsonrpc
+                - id
+                - method
+                - params
+              properties:
+                jsonrpc:
+                  type: string
+                  example: "2.0"
+                id:
+                  type: number
+                  example: 1
+                method:
+                  type: string
+                  example: getMultipleAccounts
+                params:
+                  type: array
+                  example: [["vines1vzrYbzLMRdu58ou5XTby4qAqVRLmqo36NKPTg","4fYNw3dojWmQ4dXtSGE9epjRGy9pFSx62YypT7avPYvA"],{"encoding":"base58"}]
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: object
+                required: 
+                  - jsonrpc
+                  - result
+                  - id
+                properties:
+                  jsonrpc:
+                    type: string
+                    example: "2.0"
+                  result:
+                    type: object
+                    example: {"context":{"apiVersion":"2.0.15","slot":341197247},"value":[{"data":["","base58"],"executable":false,"lamports":88849814690250,"owner":"11111111111111111111111111111111","rentEpoch":18446744073709551615,"space":0},{"data":["","base58"],"executable":false,"lamports":998763433,"owner":"2WRuhE4GJFoE23DYzp2ij6ZnuQ8p9mJeU6gDgfsjR4or","rentEpoch":18446744073709551615,"space":0}]}
+                  id:
+                    type: number
+                    example: 1
+
+  /getProgramAccounts:
+    post:
+      description: Returns all accounts owned by the provided program Pubkey
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: 
+                - jsonrpc
+                - id
+                - method
+                - params
+              properties:
+                jsonrpc:
+                  type: string
+                  example: "2.0"
+                id:
+                  type: number
+                  example: 1
+                method:
+                  type: string
+                  example: getProgramAccounts
+                params:
+                  type: array
+                  example: ["Feat1YXHhH6t1juaWF74WLcfv4XoNocjXA6sPWHNgAse",{"filters":[{"dataSize":17},{"memcmp":{"offset":0,"bytes":"LEHQsm9G7W"}}]}]
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: object
+                required: 
+                  - jsonrpc
+                  - result
+                  - id
+                properties:
+                  jsonrpc:
+                    type: string
+                    example: "2.0"
+                  result:
+                    type: array
+                    example: [{"account":{"data":"25fCc1kx5r6WPWcLCJUHTUj","executable":false,"lamports":1009200,"owner":"Feat1YXHhH6t1juaWF74WLcfv4XoNocjXA6sPWHNgAse","rentEpoch":18446744073709552000,"space":17},"pubkey":"BnSuisc6EfQ6JYCpVppYGPXweJbWwGFo5rP1urReHqd"}]
+                  id:
+                    type: number
+                    example: 1
+
+  /getRecentPerformanceSamples:
+    post:
+      description: Returns a list of recent performance samples, in reverse slot order. Performance samples are taken every 60 seconds and include the number of transactions and slots that occur in a given time window
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: 
+                - jsonrpc
+                - id
+                - method
+                - params
+              properties:
+                jsonrpc:
+                  type: string
+                  example: "2.0"
+                id:
+                  type: number
+                  example: 1
+                method:
+                  type: string
+                  example: getRecentPerformanceSamples
+                params:
+                  type: array
+                  example: [4]
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: object
+                required: 
+                  - jsonrpc
+                  - result
+                  - id
+                properties:
+                  jsonrpc:
+                    type: string
+                    example: "2.0"
+                  result:
+                    type: array
+                    example: [{"numSlots":126,"numTransactions":126,"numNonVoteTransactions":1,"samplePeriodSecs":60,"slot":348125},{"numSlots":126,"numTransactions":126,"numNonVoteTransactions":1,"samplePeriodSecs":60,"slot":347999},{"numSlots":125,"numTransactions":125,"numNonVoteTransactions":0,"samplePeriodSecs":60,"slot":347873},{"numSlots":125,"numTransactions":125,"numNonVoteTransactions":0,"samplePeriodSecs":60,"slot":347748}]
+                  id:
+                    type: number
+                    example: 1
+
+  /getRecentPrioritizationFees:
+    post:
+      description: Returns a list of prioritization fees from recent blocks
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: 
+                - jsonrpc
+                - id
+                - method
+                - params
+              properties:
+                jsonrpc:
+                  type: string
+                  example: "2.0"
+                id:
+                  type: number
+                  example: 1
+                method:
+                  type: string
+                  example: getRecentPrioritizationFees
+                params:
+                  type: array
+                  example: [["CxELquR1gPP8wHe33gZ4QxqGB3sZ9RSwsJ2KshVewkFY"]]
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: object
+                required: 
+                  - jsonrpc
+                  - result
+                  - id
+                properties:
+                  jsonrpc:
+                    type: string
+                    example: "2.0"
+                  result:
+                    type: array
+                    example: [{"slot":348125,"prioritizationFee":0},{"slot":348126,"prioritizationFee":1000},{"slot":348127,"prioritizationFee":500},{"slot":348128,"prioritizationFee":0},{"slot":348129,"prioritizationFee":1234}]
+                  id:
+                    type: number
+                    example: 1
+
+  /getSignaturesForAddress:
+    post:
+      description: Returns a list of prioritization fees from recent blocks
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: 
+                - jsonrpc
+                - id
+                - method
+                - params
+              properties:
+                jsonrpc:
+                  type: string
+                  example: "2.0"
+                id:
+                  type: number
+                  example: 1
+                method:
+                  type: string
+                  example: getSignaturesForAddress
+                params:
+                  type: array
+                  example: ["Vote111111111111111111111111111111111111111",{"limit":1}]
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: object
+                required: 
+                  - jsonrpc
+                  - result
+                  - id
+                properties:
+                  jsonrpc:
+                    type: string
+                    example: "2.0"
+                  result:
+                    type: array
+                    example: [{"err":null,"memo":null,"signature":"5h6xBEauJ3PK6SWCZ1PGjBvj8vDdWG3KpwATGy1ARAXFSDwt8GFXM7W5Ncn16wmqokgpiKRLuS83KUxyZyv2sUYv","slot":114,"blockTime":null}]
+                  id:
+                    type: number
+                    example: 1
+
+  /getSignatureStatuses:
+    post:
+      description: Returns the statuses of a list of signatures. Each signature must be a txid, the first signature of a transaction
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: 
+                - jsonrpc
+                - id
+                - method
+                - params
+              properties:
+                jsonrpc:
+                  type: string
+                  example: "2.0"
+                id:
+                  type: number
+                  example: 1
+                method:
+                  type: string
+                  example: getSignatureStatuses
+                params:
+                  type: array
+                  example: [["5VERv8NMvzbJMEkV8xnrLkEaWRtSz9CosKDYjCJjBRnbJLgp8uirBgmQpjKhoR4tjF3ZpRzrFmBV6UjKdiSZkQUW"],{"searchTransactionHistory":true}]
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: object
+                required: 
+                  - jsonrpc
+                  - result
+                  - id
+                properties:
+                  jsonrpc:
+                    type: string
+                    example: "2.0"
+                  result:
+                    type: object
+                    example: {"context":{"slot":82},"value":[{"slot":48,"confirmations":null,"err":null,"status":{"Ok":null},"confirmationStatus":"finalized"},null]}
+                  id:
+                    type: number
+                    example: 1
+
+  /getSlot:
+    post:
+      description: Returns the slot that has reached the given or default commitment level
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: 
+                - jsonrpc
+                - id
+                - method
+                - params
+              properties:
+                jsonrpc:
+                  type: string
+                  example: "2.0"
+                id:
+                  type: number
+                  example: 1
+                method:
+                  type: string
+                  example: getSlot
+                params:
+                  type: array
+                  example: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: object
+                required: 
+                  - jsonrpc
+                  - result
+                  - id
+                properties:
+                  jsonrpc:
+                    type: string
+                    example: "2.0"
+                  result:
+                    type: number
+                    example: 1234
+                  id:
+                    type: number
+                    example: 1
+
+  /getSlotLeader:
+    post:
+      description: Returns the current slot leader
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: 
+                - jsonrpc
+                - id
+                - method
+                - params
+              properties:
+                jsonrpc:
+                  type: string
+                  example: "2.0"
+                id:
+                  type: number
+                  example: 1
+                method:
+                  type: string
+                  example: getSlotLeader
+                params:
+                  type: array
+                  example: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: object
+                required: 
+                  - jsonrpc
+                  - result
+                  - id
+                properties:
+                  jsonrpc:
+                    type: string
+                    example: "2.0"
+                  result:
+                    type: string
+                    example: "ENvAW7JScgYq6o4zKZwewtkzzJgDzuJAFxYasvmEQdpS"
+                  id:
+                    type: number
+                    example: 1
+
+  /getSlotLeaders:
+    post:
+      description: Returns the slot leaders for a given slot range
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: 
+                - jsonrpc
+                - id
+                - method
+                - params
+              properties:
+                jsonrpc:
+                  type: string
+                  example: "2.0"
+                id:
+                  type: number
+                  example: 1
+                method:
+                  type: string
+                  example: getSlotLeaders
+                params:
+                  type: array
+                  example: [359125150,10]
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: object
+                required: 
+                  - jsonrpc
+                  - result
+                  - id
+                properties:
+                  jsonrpc:
+                    type: string
+                    example: "2.0"
+                  result:
+                    type: array
+                    example: ["ChorusmmK7i1AxXeiTtQgQZhQNiXYU84ULeaYF1EH15n","ChorusmmK7i1AxXeiTtQgQZhQNiXYU84ULeaYF1EH15n","ChorusmmK7i1AxXeiTtQgQZhQNiXYU84ULeaYF1EH15n","ChorusmmK7i1AxXeiTtQgQZhQNiXYU84ULeaYF1EH15n","Awes4Tr6TX8JDzEhCZY2QVNimT6iD1zWHzf1vNyGvpLM","Awes4Tr6TX8JDzEhCZY2QVNimT6iD1zWHzf1vNyGvpLM","Awes4Tr6TX8JDzEhCZY2QVNimT6iD1zWHzf1vNyGvpLM","Awes4Tr6TX8JDzEhCZY2QVNimT6iD1zWHzf1vNyGvpLM","DWvDTSh3qfn88UoQTEKRV2JnLt5jtJAVoiCo3ivtMwXP","DWvDTSh3qfn88UoQTEKRV2JnLt5jtJAVoiCo3ivtMwXP"]
+                  id:
+                    type: number
+                    example: 1
+
+  /getStakeMinimumDelegation:
+    post:
+      description: Returns the stake minimum delegation, in lamports
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: 
+                - jsonrpc
+                - id
+                - method
+                - params
+              properties:
+                jsonrpc:
+                  type: string
+                  example: "2.0"
+                id:
+                  type: number
+                  example: 1
+                method:
+                  type: string
+                  example: getStakeMinimumDelegation
+                params:
+                  type: array
+                  example: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: object
+                required: 
+                  - jsonrpc
+                  - result
+                  - id
+                properties:
+                  jsonrpc:
+                    type: string
+                    example: "2.0"
+                  result:
+                    type: object
+                    example: {"context":{"slot":501},"value":1000000000}
+                  id:
+                    type: number
+                    example: 1
+
+  /getSupply:
+    post:
+      description: Returns information about the current supply
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: 
+                - jsonrpc
+                - id
+                - method
+                - params
+              properties:
+                jsonrpc:
+                  type: string
+                  example: "2.0"
+                id:
+                  type: number
+                  example: 1
+                method:
+                  type: string
+                  example: getSupply
+                params:
+                  type: array
+                  example: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: object
+                required: 
+                  - jsonrpc
+                  - result
+                  - id
+                properties:
+                  jsonrpc:
+                    type: string
+                    example: "2.0"
+                  result:
+                    type: object
+                    example: {"context":{"slot":1114},"value":{"circulating":16000,"nonCirculating":1000000,"nonCirculatingAccounts":["FEy8pTbP5fEoqMV1GdTz83byuA8EKByqYat1PKDgVAq5","9huDUZfxoJ7wGMTffUE7vh1xePqef7gyrLJu9NApncqA","3mi1GmwEE3zo2jmfDuzvjSX9ovRXsDUKHvsntpkhuLJ9","BYxEJTDerkaRWBem3XgnVcdhppktBXa2HbkHPKj2Ui4Z"],"total":1016000}}
+                  id:
+                    type: number
+                    example: 1
+
+  /getTokenAccountBalance:
+    post:
+      description: Returns the token balance of an SPL Token account
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: 
+                - jsonrpc
+                - id
+                - method
+                - params
+              properties:
+                jsonrpc:
+                  type: string
+                  example: "2.0"
+                id:
+                  type: number
+                  example: 1
+                method:
+                  type: string
+                  example: getTokenAccountBalance
+                params:
+                  type: array
+                  example: ["7fUAJdStEuGbc3sM84cKRL6yYaaSstyLSU4ve5oovLS7"]
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: object
+                required: 
+                  - jsonrpc
+                  - result
+                  - id
+                properties:
+                  jsonrpc:
+                    type: string
+                    example: "2.0"
+                  result:
+                    type: object
+                    example: {"context":{"slot":1114},"value":{"amount":"9864","decimals":2,"uiAmount":98.64,"uiAmountString":"98.64"}}
+                  id:
+                    type: number
+                    example: 1
+
+  /getTokenAccountsByDelegate:
+    post:
+      description: Returns all SPL Token accounts by approved Delegate
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: 
+                - jsonrpc
+                - id
+                - method
+                - params
+              properties:
+                jsonrpc:
+                  type: string
+                  example: "2.0"
+                id:
+                  type: number
+                  example: 1
+                method:
+                  type: string
+                  example: getTokenAccountsByDelegate
+                params:
+                  type: array
+                  example: ["4Nd1mBQtrMJVYVfKf2PJy9NZUZdTAsp7D4xWLs4gDB4T",{"programId":"TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA"},{"encoding":"jsonParsed"}]
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: object
+                required: 
+                  - jsonrpc
+                  - result
+                  - id
+                properties:
+                  jsonrpc:
+                    type: string
+                    example: "2.0"
+                  result:
+                    type: object
+                    example: {"context":{"slot":1114},"value":[{"account":{"data":{"program":"spl-token","parsed":{"info":{"tokenAmount":{"amount":"1","decimals":1,"uiAmount":0.1,"uiAmountString":"0.1"},"delegate":"4Nd1mBQtrMJVYVfKf2PJy9NZUZdTAsp7D4xWLs4gDB4T","delegatedAmount":{"amount":"1","decimals":1,"uiAmount":0.1,"uiAmountString":"0.1"},"state":"initialized","isNative":false,"mint":"3wyAj7Rt1TWVPZVteFJPLa26JmLvdb1CAKEFZm3NY75E","owner":"CnPoSPKXu7wJqxe59Fs72tkBeALovhsCxYeFwPCQH9TD"},"type":"account"},"space":165},"executable":false,"lamports":1726080,"owner":"TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA","rentEpoch":4,"space":165},"pubkey":"28YTZEwqtMHWrhWcvv34se7pjS7wctgqzCPB3gReCFKp"}]}
+                  id:
+                    type: number
+                    example: 1
+
+  /getTokenAccountsByOwner:
+    post:
+      description: Returns all SPL Token accounts by token owner
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: 
+                - jsonrpc
+                - id
+                - method
+                - params
+              properties:
+                jsonrpc:
+                  type: string
+                  example: "2.0"
+                id:
+                  type: number
+                  example: 1
+                method:
+                  type: string
+                  example: getTokenAccountsByOwner
+                params:
+                  type: array
+                  example: ["A1TMhSGzQxMr1TboBKtgixKz1sS6REASMxPo1qsyTSJd",{"programId":"TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA"},{"encoding":"jsonParsed"}]
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: object
+                required: 
+                  - jsonrpc
+                  - result
+                  - id
+                properties:
+                  jsonrpc:
+                    type: string
+                    example: "2.0"
+                  result:
+                    type: object
+                    example: {"context":{"apiVersion":"2.0.15","slot":341197933},"value":[{"account":{"data":{"parsed":{"info":{"isNative":false,"mint":"2cHr7QS3xfuSV8wdxo3ztuF4xbiarF6Nrgx3qpx3HzXR","owner":"A1TMhSGzQxMr1TboBKtgixKz1sS6REASMxPo1qsyTSJd","state":"initialized","tokenAmount":{"amount":"420000000000000","decimals":6,"uiAmount":420000000.0,"uiAmountString":"420000000"}},"type":"account"},"program":"spl-token","space":165},"executable":false,"lamports":2039280,"owner":"TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA","rentEpoch":18446744073709551615,"space":165},"pubkey":"BGocb4GEpbTFm8UFV2VsDSaBXHELPfAXrvd4vtt8QWrA"},{"account":{"data":{"parsed":{"info":{"isNative":false,"mint":"4KVSsAtsG8JByKfB2jYWgGwvVR9WcBSUfsqpTSL9c3Jr","owner":"A1TMhSGzQxMr1TboBKtgixKz1sS6REASMxPo1qsyTSJd","state":"initialized","tokenAmount":{"amount":"10000000000000","decimals":9,"uiAmount":10000.0,"uiAmountString":"10000"}},"type":"account"},"program":"spl-token","space":165},"executable":false,"lamports":2039280,"owner":"TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA","rentEpoch":18446744073709551615,"space":165},"pubkey":"9PwCPoWJ75LSgZeGMubXBdufYMVd66HrcF78QzW6ZHkV"}]}
+                  id:
+                    type: number
+                    example: 1
+
+  /getTokenLargestAccounts:
+    post:
+      description: Returns the 20 largest accounts of a particular SPL Token type
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: 
+                - jsonrpc
+                - id
+                - method
+                - params
+              properties:
+                jsonrpc:
+                  type: string
+                  example: "2.0"
+                id:
+                  type: number
+                  example: 1
+                method:
+                  type: string
+                  example: getTokenLargestAccounts
+                params:
+                  type: array
+                  example: ["2cHr7QS3xfuSV8wdxo3ztuF4xbiarF6Nrgx3qpx3HzXR"]
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: object
+                required: 
+                  - jsonrpc
+                  - result
+                  - id
+                properties:
+                  jsonrpc:
+                    type: string
+                    example: "2.0"
+                  result:
+                    type: object
+                    example: {"context":{"slot":1114},"value":[{"address":"FYjHNoFtSQ5uijKrZFyYAxvEr87hsKXkXcxkcmkBAf4r","amount":"771","decimals":2,"uiAmount":7.71,"uiAmountString":"7.71"},{"address":"BnsywxTcaYeNUtzrPxQUvzAWxfzZe3ZLUJ4wMMuLESnu","amount":"229","decimals":2,"uiAmount":2.29,"uiAmountString":"2.29"}]}
+                  id:
+                    type: number
+                    example: 1
+
+  /getTokenSupply:
+    post:
+      description: Returns the total supply of an SPL Token type
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: 
+                - jsonrpc
+                - id
+                - method
+                - params
+              properties:
+                jsonrpc:
+                  type: string
+                  example: "2.0"
+                id:
+                  type: number
+                  example: 1
+                method:
+                  type: string
+                  example: getTokenSupply
+                params:
+                  type: array
+                  example: ["2cHr7QS3xfuSV8wdxo3ztuF4xbiarF6Nrgx3qpx3HzXR"]
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: object
+                required: 
+                  - jsonrpc
+                  - result
+                  - id
+                properties:
+                  jsonrpc:
+                    type: string
+                    example: "2.0"
+                  result:
+                    type: object
+                    example: {"context":{"slot":1114},"value":{"amount":"100000","decimals":2,"uiAmount":1000,"uiAmountString":"1000"}}
+                  id:
+                    type: number
+                    example: 1
+
+  /getTransaction:
+    post:
+      description: Returns transaction details for a confirmed transaction
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: 
+                - jsonrpc
+                - id
+                - method
+                - params
+              properties:
+                jsonrpc:
+                  type: string
+                  example: "2.0"
+                id:
+                  type: number
+                  example: 1
+                method:
+                  type: string
+                  example: getTransaction
+                params:
+                  type: array
+                  example: ["2xH4bHJQmjygvf28zG1s4pCz9iGJ2mt5Dmf96jtwUwiXLtkNrjGeJusfFUJMSkckPnPvfWpLX1xAse9Bus8q16Lk","json"]
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: object
+                required: 
+                  - jsonrpc
+                  - result
+                  - id
+                properties:
+                  jsonrpc:
+                    type: string
+                    example: "2.0"
+                  result:
+                    type: object
+                    example: {"blockTime":1738720521,"meta":{"computeUnitsConsumed":150,"err":null,"fee":5000,"innerInstructions":[],"loadedAddresses":{"readonly":[],"writable":[]},"logMessages":["Program 11111111111111111111111111111111 invoke [1]","Program 11111111111111111111111111111111 success"],"postBalances":[36529640591866230,6000000000,1],"postTokenBalances":[],"preBalances":[36529641591871230,5000000000,1],"preTokenBalances":[],"rewards":[],"status":{"Ok":null}},"slot":358905916,"transaction":{"message":{"accountKeys":["9B5XszUGdMaxCZ7uSQhPzdks5ZQSmWxrmzCSvtJ6Ns6g","2kBgqoWB3q4nNbbWEhsbTTGKHzJmNzwZFeW1Xc81YP1G","11111111111111111111111111111111"],"header":{"numReadonlySignedAccounts":0,"numReadonlyUnsignedAccounts":1,"numRequiredSignatures":1},"instructions":[{"accounts":[0,1],"data":"3Bxs3zzLZLuLQEYX","programIdIndex":2,"stackHeight":null}],"recentBlockhash":"8a1QozMDrZv9yBuGNJLXtRD8PYDMMrKWDvepACA4XDun"},"signatures":["2xH4bHJQmjygvf28zG1s4pCz9iGJ2mt5Dmf96jtwUwiXLtkNrjGeJusfFUJMSkckPnPvfWpLX1xAse9Bus8q16Lk"]}}
+                  id:
+                    type: number
+                    example: 1
+
+  /getTransactionCount:
+    post:
+      description: Returns the current Transaction count from the ledger
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: 
+                - jsonrpc
+                - id
+                - method
+                - params
+              properties:
+                jsonrpc:
+                  type: string
+                  example: "2.0"
+                id:
+                  type: number
+                  example: 1
+                method:
+                  type: string
+                  example: getTransactionCount
+                params:
+                  type: array
+                  example: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: object
+                required: 
+                  - jsonrpc
+                  - result
+                  - id
+                properties:
+                  jsonrpc:
+                    type: string
+                    example: "2.0"
+                  result:
+                    type: number
+                    example: 268
+                  id:
+                    type: number
+                    example: 1
+
+  /getVersion:
+    post:
+      description: Returns the current Solana version running on the node
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: 
+                - jsonrpc
+                - id
+                - method
+                - params
+              properties:
+                jsonrpc:
+                  type: string
+                  example: "2.0"
+                id:
+                  type: number
+                  example: 1
+                method:
+                  type: string
+                  example: getVersion
+                params:
+                  type: array
+                  example: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: object
+                required: 
+                  - jsonrpc
+                  - result
+                  - id
+                properties:
+                  jsonrpc:
+                    type: string
+                    example: "2.0"
+                  result:
+                    type: object
+                    example: {"feature-set":3039680930,"solana-core":"2.1.11"}
+                  id:
+                    type: number
+                    example: 1
+
+  /getVoteAccounts:
+    post:
+      description: Returns the account info and associated stake for all the voting accounts in the current bank
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: 
+                - jsonrpc
+                - id
+                - method
+                - params
+              properties:
+                jsonrpc:
+                  type: string
+                  example: "2.0"
+                id:
+                  type: number
+                  example: 1
+                method:
+                  type: string
+                  example: getVoteAccounts
+                params:
+                  type: array
+                  example: [{"votePubkey":"3ZT31jkAGhUaw8jsy4bTknwBMP8i4Eueh52By4zXcsVw"}]
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: object
+                required: 
+                  - jsonrpc
+                  - result
+                  - id
+                properties:
+                  jsonrpc:
+                    type: string
+                    example: "2.0"
+                  result:
+                    type: object
+                    example: {"current":[{"commission":0,"epochVoteAccount":true,"epochCredits":[[1,64,0],[2,192,64]],"nodePubkey":"B97CCUW3AEZFGy6uUg6zUdnNYvnVq5VG8PUtb2HayTDD","lastVote":147,"activatedStake":42,"votePubkey":"3ZT31jkAGhUaw8jsy4bTknwBMP8i4Eueh52By4zXcsVw"}],"delinquent":[]}
+                  id:
+                    type: number
+                    example: 1
+
+  /isBlockhashValid:
+    post:
+      description: Returns whether a blockhash is still valid or not
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: 
+                - jsonrpc
+                - id
+                - method
+                - params
+              properties:
+                jsonrpc:
+                  type: string
+                  example: "2.0"
+                id:
+                  type: number
+                  example: 1
+                method:
+                  type: string
+                  example: isBlockhashValid
+                params:
+                  type: array
+                  example: ["J7rBdM6AecPDEZp8aPq5iPSNKVkU5Q76F3oAV4eW5wsW",{"commitment":"processed"}]
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: object
+                required: 
+                  - jsonrpc
+                  - result
+                  - id
+                properties:
+                  jsonrpc:
+                    type: string
+                    example: "2.0"
+                  result:
+                    type: object
+                    example: {"context":{"slot":2483},"value":false}
+                  id:
+                    type: number
+                    example: 1
+
+  /minimumLedgerSlot:
+    post:
+      description: Returns the lowest slot that the node has information about in its ledger
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: 
+                - jsonrpc
+                - id
+                - method
+                - params
+              properties:
+                jsonrpc:
+                  type: string
+                  example: "2.0"
+                id:
+                  type: number
+                  example: 1
+                method:
+                  type: string
+                  example: minimumLedgerSlot
+                params:
+                  type: array
+                  example: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: object
+                required: 
+                  - jsonrpc
+                  - result
+                  - id
+                properties:
+                  jsonrpc:
+                    type: string
+                    example: "2.0"
+                  result:
+                    type: number
+                    example: 357580432
+                  id:
+                    type: number
+                    example: 1
+
+  /requestAirdrop:
+    post:
+      description: Requests an airdrop of lamports to a Pubkey
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: 
+                - jsonrpc
+                - id
+                - method
+                - params
+              properties:
+                jsonrpc:
+                  type: string
+                  example: "2.0"
+                id:
+                  type: number
+                  example: 1
+                method:
+                  type: string
+                  example: requestAirdrop
+                params:
+                  type: array
+                  example: [
+                    "2kBgqoWB3q4nNbbWEhsbTTGKHzJmNzwZFeW1Xc81YP1G",
+                    1000000000
+                  ]
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: object
+                required: 
+                  - jsonrpc
+                  - result
+                  - id
+                properties:
+                  jsonrpc:
+                    type: string
+                    example: "2.0"
+                  result:
+                    type: string
+                    example: "5VERv8NMvzbJMEkV8xnrLkEaWRtSz9CosKDYjCJjBRnbJLgp8uirBgmQpjKhoR4tjF3ZpRzrFmBV6UjKdiSZkQUW"
+                  id:
+                    type: number
+                    example: 1
+
+  /sendTransaction:
+    post:
+      description: Submits a signed transaction to the cluster for processing
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: 
+                - jsonrpc
+                - id
+                - method
+                - params
+              properties:
+                jsonrpc:
+                  type: string
+                  example: "2.0"
+                id:
+                  type: number
+                  example: 1
+                method:
+                  type: string
+                  example: sendTransaction
+                params:
+                  type: array
+                  example: ["4hXTCkRzt9WyecNzV1XPgCDfGAZzQKNxLXgynz5QDuWWPSAZBZSHptvWRL3BjCvzUXRdKvHL2b7yGrRQcWyaqsaBCncVG7BFggS8w9snUts67BSh3EqKpXLUm5UMHfD7ZBe9GhARjbNQMLJ1QD3Spr6oMTBU6EhdB4RD8CP2xUxr2u3d6fos36PD98XS6oX8TQjLpsMwncs5DAMiD4nNnR8NBfyghGCWvCVifVwvA8B8TJxE1aiyiv2L429BCWfyzAme5sZW8rDb14NeCQHhZbtNqfXhcp2tAnaAT"]
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: object
+                required: 
+                  - jsonrpc
+                  - result
+                  - id
+                properties:
+                  jsonrpc:
+                    type: string
+                    example: "2.0"
+                  result:
+                    type: string
+                    example: "2id3YC2jK9G5Wo2phDx4gJVAew8DcY5NAojnVuao8rkxwPYPe8cSwE5GzhEgJA2y8fVjDEo6iR6ykBvDxrTQrtpb"
+                  id:
+                    type: number
+                    example: 1
+
+  /simulateTransaction:
+    post:
+      description: Submits a signed transaction to the cluster for processing
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: 
+                - jsonrpc
+                - id
+                - method
+                - params
+              properties:
+                jsonrpc:
+                  type: string
+                  example: "2.0"
+                id:
+                  type: number
+                  example: 1
+                method:
+                  type: string
+                  example: simulateTransaction
+                params:
+                  type: array
+                  example: ["AQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAEDArczbMia1tLmq7zz4DinMNN0pJ1JtLdqIJPUw3YrGCzYAMHBsgN27lcgB6H2WQvFgyZuJYHa46puOQo9yQ8CVQbd9uHXZaGT2cvhRs7reawctIXtX1s3kTqM9YV+/wCp20C7Wj2aiuk5TReAXo+VTVg8QTHjs0UjNMMKCvpzZ+ABAgEBARU=",{"encoding":"base64"}]
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: object
+                required: 
+                  - jsonrpc
+                  - result
+                  - id
+                properties:
+                  jsonrpc:
+                    type: string
+                    example: "2.0"
+                  result:
+                    type: object
+                    example: {"context":{"slot":218},"value":{"err":null,"accounts":null,"logs":["Program 83astBRguLMdt2h5U1Tpdq5tjFoJ6noeGwaY3mDLVcri invoke [1]","Program 83astBRguLMdt2h5U1Tpdq5tjFoJ6noeGwaY3mDLVcri consumed 2366 of 1400000 compute units","Program return: 83astBRguLMdt2h5U1Tpdq5tjFoJ6noeGwaY3mDLVcri KgAAAAAAAAA=","Program 83astBRguLMdt2h5U1Tpdq5tjFoJ6noeGwaY3mDLVcri success"],"returnData":{"data":["Kg==","base64"],"programId":"83astBRguLMdt2h5U1Tpdq5tjFoJ6noeGwaY3mDLVcri"},"unitsConsumed":2366}}
+                  id:
+                    type: number
+                    example: 1

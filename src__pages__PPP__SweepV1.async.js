@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunk=self.webpackChunk||[]).push([[535],{14980:function(s,e,a){a.r(e);var c=a(53401),n=a(39380),t=a(85893);e.default=function(){return(0,t.jsx)(n._z,{className:"",ghost:!0,children:(0,t.jsxs)("div",{className:"flex flex-wrap justify-center gap-5",children:[(0,t.jsx)(c.tC,{}),(0,t.jsx)(c.pb,{}),(0,t.jsx)(c.h,{})]})})}}}]);
